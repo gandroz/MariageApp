@@ -1,0 +1,43 @@
+﻿extends layout
+
+block content   
+   link(type='text/css', rel='stylesheet', href='/css/mariage.css')    
+   div.container-fluid.wrapper(ng-app="appListMariage", ng-controller="listMariageCtrl", ng-init="init()")
+        div.container-fluid.spinnerWrapper#spinner(ng-hide="loaded")
+        div.row-fluid(ng-show="loaded")          
+           div.offset2.span9
+              div.row-fluid   
+                 button.btn.btn-primary(ng-click="showPanel();") Nouvelle tâche              
+              div(collapse="isCollapsed")
+                  div.span8.offset1.backlogPanel
+                    form.formLog
+                       input.input-block-level(type='text', placeholder='Title', ng-model="entry.title")
+                       textarea.input-block-level(rows = 10, placeholder='Description de tâche', ng-model="entry.description")
+                       input.input-block-level.datepicker(type='text', placeholder='Starting Date', ng-model="entry.startDate")
+                       input.input-block-level.datepicker(type='text', placeholder='Ending Date', ng-model="entry.stopDate")
+                       input.input-block-level(type='text', placeholder='Budget', ng-model="entry.budget")
+                       div.btn-toolbar
+                          button.btn.btn-primary(ng-click="action()") {{buttonText}}
+                          button.btn(ng-click="cancel()") Cancel
+              div.span12(ng-hide="!isCollapsed")          
+                 div.accordion.span8.offset1#accordionMariage(ng-show="data.entries.length > 0") 
+                    div.accordion-group(ng-repeat="item in data.entries | filter:searchNotDone | orderBy:importance")
+                       img.checkBox.pull-right(ng-src="{{item.done && '/img/OkGreen.png' || '/img/OkBlack.png'}}", ng-click="chgState(item)", ng-model="item.done")
+                       a.btn.btn-mini.btn-danger.pull-right.buttonLog(ng:click="remove(item)") X
+                       a.btn.btn-mini.btn-info.pull-right.buttonLog(ng:click="edit(item,$event)") ...                       
+                       div.accordion-heading.mariageEntryToBeDone                          
+                          a.accordion-toogle.mariageEntryToBeDone(data-toggle="collapse", data-parent="#accordionMariage", href="#collapse{{$index + 1}}") {{item.title}}                      
+                       div.accordion-body.collapse(id="collapse{{$index+1}}")
+                          div.accordion-inner                             
+                             p(ng-bind-html="item.description")
+              div.span12(ng-hide="!isCollapsed") 
+                 div.accordion.span8.offset1#accordionMariage2(ng-hide="doneEntriesPresent") 
+                    div.accordion-group(ng-repeat="item in data.entries | filter:searchDone | orderBy:importance")
+                       img.checkBox.pull-right(ng-src="{{item.done && '/img/OkGreen.png' || '/img/OkBlack.png'}}", ng-click="chgState(item)")
+                       a.btn.btn-mini.btn-danger.pull-right.buttonLog(ng:click="remove(item)") X
+                       a.btn.btn-mini.btn-info.pull-right.buttonLog(ng:click="edit(item,$event)") ...                       
+                       div.accordion-heading.headDone
+                          a.accordion-toogle.headDone(data-toggle="collapse", data-parent="#accordionMariage2", href="#collapseBis{{$index + 1}}") {{item.title}}                      
+                       div.accordion-body.collapse(id="collapseBis{{$index+1}}")
+                          div.accordion-inner                             
+                             p {{item.description}}                

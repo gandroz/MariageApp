@@ -1,0 +1,38 @@
+!!! 5
+html
+   head
+    title G&AC
+    
+    link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css')
+    link(href='http://fonts.googleapis.com/css?family=Rouge+Script|Tangerine|Monsieur+La+Doulaise|Herr+Von+Muellerhoff|Vibur', rel='stylesheet', type='text/css')
+    link(type='text/css', href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css')
+    link(rel="shortcut icon", href="https://github.com/twitter/bootstrap/tree/master/docs/assets/ico/favicon.png")
+    link(rel='stylesheet', href='/css/index.css')    
+    link(rel='stylesheet', href='/css/social-buttons.css')    
+    link(rel="stylesheet", href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")   
+    script(src='http://codeorigin.jquery.com/jquery-2.0.3.min.js');
+    script(src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js")
+    script(src='/js/controller/timer.js');
+    
+  body(onload="startTime()")   
+   div#wrapper    
+    header.row-fluid
+      div.navbar.navbar-static-top
+       div.navbar-inner.header
+          div.container-fluid
+             div.brand Mariage
+             div.pull-right
+                div#countdown
+                if !user
+                   button.btnLog.btn.pull-right.btn-facebook(onclick="window.location.href='/auth/facebook';return false;")
+                      i.icon-facebook
+                      ||
+                      span.petit Connect with facebook
+    div#maincontent
+           if !user
+              h1.pull-right Guillaume & Anne-Catherine
+           else
+              h1.pull-right 
+                 a(href="/home") Guillaume & Anne-Catherine
+    footer 
+      div.credentials.pull-right by Guillaume Androz       

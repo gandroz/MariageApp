@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>AppMariage</Name>
+    <RootNamespace>AppMariage</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>30294e3c-88bd-4db4-8530-beb1126a3148</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="models\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\js\app\" />
+    <Folder Include="public\js\controller\" />
+    <Folder Include="public\js\lib\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="config.js" />
+    <Compile Include="models\listMariage.js" />
+    <Compile Include="models\pass.js" />
+    <Compile Include="models\user.js" />
+    <Compile Include="public\js\app\appListMariage.js" />
+    <Compile Include="public\js\controller\listMariageCtrl.js" />
+    <Compile Include="public\js\controller\navBarCtrl.js" />
+    <Compile Include="public\js\controller\timer.js" />
+    <Compile Include="public\js\lib\bootstrap.js" />
+    <Compile Include="public\js\lib\jquery-ui-1.10.3.custom.js" />
+    <Compile Include="public\js\lib\jquery-ui-1.10.3.custom.min.js" />
+    <Compile Include="public\js\lib\spin.min.js" />
+    <Compile Include="public\js\lib\ui-bootstrap-tpls.js" />
+    <Compile Include="public\js\lib\ui-bootstrap.js" />
+    <Compile Include="routes\mariage.js" />
+    <Compile Include="routes\routes.js" />
+    <Compile Include="routes\user.js" />
+    <Compile Include="server.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="Procfile" />
+    <Content Include="public\css\bootstrap-responsive.css" />
+    <Content Include="public\css\bootstrap.css" />
+    <Content Include="public\css\index.css" />
+    <Content Include="public\css\mariage.css" />
+    <Content Include="public\css\social-buttons.css" />
+    <Content Include="public\img\glyphicons-halflings-white.png" />
+    <Content Include="public\img\glyphicons-halflings.png" />
+    <Content Include="public\img\OkBlack.png" />
+    <Content Include="public\img\OkGreen.png" />
+    <Content Include="PushToHeroku.bat" />
+    <Content Include="README.md" />
+    <Content Include="start.bat" />
+    <Content Include="views\fordidden.jade" />
+    <Content Include="views\index.jade" />
+    <Content Include="views\layout.jade" />
+    <Content Include="views\mariage.jade" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
